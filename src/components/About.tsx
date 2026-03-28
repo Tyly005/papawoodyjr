@@ -23,12 +23,12 @@ export default function About() {
         <div>
           <div className="section-tag">About The Shop</div>
           <h2 className="section-title max-w-2xl">
-            Custom woodwork with a warm finish, practical purpose, and a craftsman’s eye.
+            More than 20 years of custom woodworking shaped by practical skill, rustic character, and clean finishing.
           </h2>
           <p className="mt-6 max-w-xl text-sm leading-[1.9] text-stone sm:text-base">
-            Papa Woody Jr Services Inc. creates custom pieces and carpentry details that feel personal,
+            Serving Niagara, Papa Woody Jr Services Inc. creates custom pieces and carpentry details that feel personal,
             durable, and made to last. Whether it is a feature build, a utility piece, or a one-of-a-kind
-            statement project, the goal is simple: deliver work that looks beautiful and performs well every day.
+            statement project, the goal is simple: deliver work that looks beautiful, functions well, and reflects true craftsmanship.
           </p>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-3">

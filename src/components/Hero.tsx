@@ -14,11 +14,11 @@ export default function Hero() {
             className="font-display font-light text-white leading-[0.98] mt-2"
             style={{ fontSize: 'clamp(2.8rem, 7vw, 6.2rem)' }}
           >
-            Rustic character, clean craftsmanship, and custom work built to be remembered.
+            Serving Niagara with custom woodworking, rustic character, and clean craftsmanship for over 20 years.
           </h1>
 
           <p className="mt-6 max-w-xl text-sm leading-[1.9] text-white/72 sm:text-base">
-            Papa Woody Jr Services Inc. delivers custom wood features, handcrafted builds, and finish carpentry with a bold visual style and dependable workmanship.
+            Papa Woody Jr Services Inc. delivers handcrafted builds, finish carpentry, and custom wood features with dependable service and a detail-driven approach.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">

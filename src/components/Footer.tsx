@@ -32,7 +32,7 @@ export default function Footer() {
               <BrandMark compact />
             </a>
             <p className="text-sm leading-[1.8] text-white/40 font-light max-w-xs">
-              Premium custom woodworking and carpentry with warm finishes, practical design, and detail-driven craftsmanship.
+              Serving Niagara with custom woodworking, rustic character, and clean craftsmanship for over 20 years.
             </p>
           </div>
 
