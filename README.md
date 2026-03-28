@@ -1,6 +1,6 @@
-# Dyno Renovations Site
+# Papa Woody Jr Services Inc. Site
 
-A React + TypeScript + Vite + Tailwind CSS website for Dyno Renovations, based in Kitchener-Waterloo, Ontario. Fully mobile responsive.
+A React + TypeScript + Vite + Tailwind CSS website for Papa Woody Jr Services Inc., serving the Niagara Region. Fully mobile responsive.
 
 ## Stack
 
