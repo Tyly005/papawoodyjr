@@ -14,6 +14,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
+  const closeMenu = () => setOpen(false)
+
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 80)
     window.addEventListener('scroll', handler)
@@ -22,9 +24,11 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
+    document.documentElement.style.overflow = open ? 'hidden' : ''
 
     return () => {
       document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
     }
   }, [open])
 
@@ -65,8 +69,9 @@ export default function Navbar() {
       {/* Mobile toggle */}
       <button
         className="md:hidden text-white"
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen((value) => !value)}
         aria-label="Toggle menu"
+        aria-expanded={open}
       >
         {open ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -75,18 +80,18 @@ export default function Navbar() {
       {open && (
         <div
           className="fixed inset-0 z-[60] bg-bark/88 backdrop-blur-md md:hidden"
-          onClick={() => setOpen(false)}
+          onClick={closeMenu}
         >
           <div className="flex min-h-screen flex-col px-6 pt-24 pb-8">
             <div
-              className="mx-auto flex w-full max-w-sm flex-1 flex-col rounded-[2rem] border border-white/12 bg-[rgba(34,24,19,0.94)] px-6 py-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
+              className="mx-auto flex w-full max-w-sm flex-1 flex-col rounded-[2rem] border border-white/12 bg-[rgba(34,24,19,0.94)] px-6 py-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mb-6 flex items-center justify-between">
                 <BrandMark compact />
                 <button
                   type="button"
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-white/14 bg-white/8 text-white"
                   aria-label="Close menu"
                 >
@@ -99,7 +104,7 @@ export default function Navbar() {
                   <a
                     key={l.href}
                     href={l.href}
-                    onClick={() => setOpen(false)}
+                    onClick={closeMenu}
                     className="text-white text-lg tracking-[0.16em] uppercase hover:text-sand transition-colors duration-300"
                   >
                     {l.label}
@@ -107,7 +112,7 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <a href="#contact" onClick={() => setOpen(false)} className="btn-primary text-center w-full mt-8">
+              <a href="#contact" onClick={closeMenu} className="btn-primary text-center w-full mt-8">
                 Request Estimate
               </a>
             </div>
