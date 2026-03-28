@@ -73,25 +73,41 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="fixed inset-0 bg-bark/88 backdrop-blur-md md:hidden">
-          <div className="flex min-h-screen flex-col px-6 pt-28 pb-10">
-            <div className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center rounded-[2rem] border border-white/10 bg-black/16 px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.25)]">
-              <div className="mb-8">
+        <div
+          className="fixed inset-0 z-[60] bg-bark/88 backdrop-blur-md md:hidden"
+          onClick={() => setOpen(false)}
+        >
+          <div className="flex min-h-screen flex-col px-6 pt-24 pb-8">
+            <div
+              className="mx-auto flex w-full max-w-sm flex-1 flex-col rounded-[2rem] border border-white/12 bg-[rgba(34,24,19,0.94)] px-6 py-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="mb-6 flex items-center justify-between">
                 <BrandMark compact />
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/14 bg-white/8 text-white"
+                  aria-label="Close menu"
+                >
+                  <X size={20} />
+                </button>
               </div>
-              <div className="flex w-full flex-col items-center gap-6">
+
+              <div className="flex flex-1 flex-col items-center justify-center gap-7">
                 {links.map((l) => (
                   <a
                     key={l.href}
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="text-white/88 text-base tracking-[0.16em] uppercase hover:text-sand transition-colors duration-300"
+                    className="text-white text-lg tracking-[0.16em] uppercase hover:text-sand transition-colors duration-300"
                   >
                     {l.label}
                   </a>
                 ))}
               </div>
-              <a href="#contact" onClick={() => setOpen(false)} className="btn-primary text-center w-full mt-10">
+
+              <a href="#contact" onClick={() => setOpen(false)} className="btn-primary text-center w-full mt-8">
                 Request Estimate
               </a>
             </div>
