@@ -20,6 +20,14 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-4 sm:px-6 md:px-16 transition-all duration-400 ${
@@ -65,20 +73,29 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="absolute top-full left-0 right-0 bg-bark/98 px-4 py-6 flex flex-col items-center gap-6 md:hidden">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="text-white/80 text-sm tracking-[0.12em] uppercase hover:text-gold"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a href="#contact" onClick={() => setOpen(false)} className="btn-primary text-center w-full max-w-xs">
-            Request Estimate
-          </a>
+        <div className="fixed inset-0 bg-bark/88 backdrop-blur-md md:hidden">
+          <div className="flex min-h-screen flex-col px-6 pt-28 pb-10">
+            <div className="mx-auto flex w-full max-w-sm flex-1 flex-col items-center justify-center rounded-[2rem] border border-white/10 bg-black/16 px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.25)]">
+              <div className="mb-8">
+                <BrandMark compact />
+              </div>
+              <div className="flex w-full flex-col items-center gap-6">
+                {links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="text-white/88 text-base tracking-[0.16em] uppercase hover:text-sand transition-colors duration-300"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+              <a href="#contact" onClick={() => setOpen(false)} className="btn-primary text-center w-full mt-10">
+                Request Estimate
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </nav>
